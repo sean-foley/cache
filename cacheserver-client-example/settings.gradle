@@ -1,0 +1,5 @@
+rootProject.name = 'cacheserver-client-example'
+
+include 'cacheserver-client-java'
+project(':cacheserver-client-java').projectDir = new File(settingsDir, '../cacheserver-client-java')
+

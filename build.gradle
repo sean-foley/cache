@@ -1,0 +1,31 @@
+/*
+
+This is the master build file for the cache subsystem. The sub-project
+build.gradle scripts will have project-specific settings. This file
+should mostly be for build orchestration (for example, if project b
+needs types/jar from project a, this file should handle that orchestration.
+
+ */
+
+version '1.0'
+
+// Pull in any build.gradle projects under the root
+// of this subsystem
+subprojects {
+    apply plugin: 'java'
+    group = 'org.gradle.sample'
+    version = '1.0'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        testCompile 'org.jmockit:jmockit:1.38'
+        testCompile "junit:junit:4.12"
+    }
+}
+
+project('cacheserver-client-example'){
+    dependencies {
+        compile project(':cacheserver-client-java')
+    }
+}

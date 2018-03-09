@@ -1,0 +1,44 @@
+
+apply plugin: 'java'
+apply plugin: 'application'
+//apply plugin: 'com.palantir.docker'
+
+version '1.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = 'com.seanfoley.cache.Main'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    baseName = 'cacheserver'
+    version =  '1.0.0'
+
+    manifest {
+        attributes 'Main-Class': 'com.seanfoley.cache.Main'
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+/*
+docker {
+    //name '${project.group}/${jar.baseName}'
+    name 'seanfoley/cacheserver'
+    tags 'latest'
+    //dockerfile file('Dockerfile')
+    //files tasks.distTar.outputs
+    files jar.archivePath
+    //buildArgs([BUILD_VERSION: 'version'])
+    buildArgs(['JAR_FILE': "${jar.archiveName}"])
+    //labels(['key': 'value'])
+    //pull true
+    //noCache true
+}
+*/

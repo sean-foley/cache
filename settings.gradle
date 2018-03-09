@@ -1,0 +1,6 @@
+rootProject.name = 'cache'
+
+include 'cacheserver'
+include 'cacheserver-client-java'
+include 'cacheserver-client-example'
+
